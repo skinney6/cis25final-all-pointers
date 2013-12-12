@@ -153,6 +153,10 @@ void menu(void) {
     cout << "**** Display all by volume ascending: " << endl;
     displayVolumeScottK(shapeAryCopy, stop);
 
+    delete fPtrA;
+    delete fPtrB;
+    delete fPtrC;
+    delete fPtrD;
     
     /*
     int option;
