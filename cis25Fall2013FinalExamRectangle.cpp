@@ -8,6 +8,7 @@
 #include <iostream>
 using namespace std;
 #include "cis25Fall2013FinalExamFraction.h"
+#include "cis25Fall2013FinalExamPoint.h"
 #include "cis25Fall2013FinalExamRectangle.h"
 
 FractionScottK RectangleScottK::getVol(void) const {
@@ -15,51 +16,47 @@ FractionScottK RectangleScottK::getVol(void) const {
 }
 
 FractionScottK RectangleScottK::getArea(void) const {
-    return FractionScottK((*lenPtr) * (*widPtr));
+    return FractionScottK(ll->area(*ur));
 }
 
-FractionScottK RectangleScottK::getWid(void) const {
-    return *widPtr;
-}
-
-FractionScottK RectangleScottK::getLen(void) const {
-    return *lenPtr;
+void RectangleScottK::printPoints(void) {
+    cout << "Lower left " << *ll << " upper right " << *ur;
 }
 
 void RectangleScottK::print(ostream &os) {
-    os << "Length " << *lenPtr << " Width " << *widPtr 
-       << " Area " << getArea() << endl;
+    os << "Rectangle:\n" << "Lower left " << *ll << " upper right " 
+       << *ur << " Area " << ll->area(*ur) << endl;
 }
 
 RectangleScottK& RectangleScottK::operator=(const RectangleScottK &arg) {
     if (this != &arg) {
-	lenPtr = new FractionScottK(*arg.lenPtr);
-	widPtr = new FractionScottK(*arg.widPtr);
+	ll = new PointScottK(*arg.ll);
+	ur = new PointScottK(*arg.ur);
     } 
     return *this;
 }
 
-RectangleScottK::RectangleScottK(FractionScottK &arg1, FractionScottK &arg2) {
+RectangleScottK::RectangleScottK(PointScottK &arg1, PointScottK &arg2) {
     if (arg1 < arg2) {
-	lenPtr = new FractionScottK(arg2);
-	widPtr = new FractionScottK(arg1);
+	ll = new PointScottK(arg2);
+	ur = new PointScottK(arg1);
     } else {
-	lenPtr = new FractionScottK(arg1);
-	widPtr = new FractionScottK(arg2);
+	ll = new PointScottK(arg1);
+	ur = new PointScottK(arg2);
     }    
 }
 
 RectangleScottK::RectangleScottK(const RectangleScottK &arg) {
-    lenPtr = new FractionScottK(*arg.lenPtr);
-    widPtr = new FractionScottK(*arg.widPtr);
+    ll = new PointScottK(*arg.ll);
+    ur = new PointScottK(*arg.ur);
 }
 
 RectangleScottK::RectangleScottK() {
-    lenPtr = new FractionScottK;
-    widPtr = new FractionScottK;
+    ll = new PointScottK;
+    ur = new PointScottK;
 }
 
 RectangleScottK::~RectangleScottK() {
-    delete lenPtr;
-    delete widPtr;
+    delete ll;
+    delete ur;
 }

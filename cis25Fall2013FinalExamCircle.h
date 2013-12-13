@@ -11,27 +11,29 @@
 #include <iostream>
 using namespace std;
 #include "cis25Fall2013FinalExamFraction.h"
+#include "cis25Fall2013FinalExamPoint.h"
 #include "cis25Fall2013FinalExamShape.h"
 
 FractionScottK const PI(157/50);
 
 class CircleScottK : public ShapeScottK {
 private:
+    PointScottK *centerPtr;
     FractionScottK *radiusPtr;
 public:
     friend ostream& operator<<(ostream &, const CircleScottK &);
     CircleScottK();
-    CircleScottK(FractionScottK &);
+    CircleScottK(PointScottK &,FractionScottK &);
     CircleScottK(const CircleScottK &);       
     ~CircleScottK();
     CircleScottK& operator=(const CircleScottK &);
-    
+
+    void printCir(void);  
     void print(ostream &);
     FractionScottK getR(void) const;
     FractionScottK getArea(void) const;
     FractionScottK getVol(void) const;
 };
-
 
 inline ostream& operator<<(ostream &os, CircleScottK &circle) {
     circle.print(os);

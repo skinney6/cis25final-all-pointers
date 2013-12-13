@@ -5,15 +5,10 @@
  * Written by:   Scott Kinney
  * Date:         
  */
-#ifndef SCOTTKINNEYLAB7DISPLAYUTILITY_H
-#define SCOTTKINNEYLAB7DISPLAYUTILITY_H
+#ifndef DISPLAYUTILITY_H
+#define DISPLAYUTILITY_H
 
-#include "cis25Fall2013FinalExamFraction.h"
-#include "cis25Fall2013FinalExamBox.h"
-#include "cis25Fall2013FinalExamFraction.h"
-#include "cis25Fall2013FinalExamRectangle.h"
-#include "cis25Fall2013FinalExamCircle.h"
-#include "cis25Fall2013FinalExamCylinder.h"
+#include "cis25Fall2013FinalExamShape.h"
 
 void getSmallestAreaScottK(ShapeScottK *[], int);
 

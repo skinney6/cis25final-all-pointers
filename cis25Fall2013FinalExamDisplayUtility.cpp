@@ -12,7 +12,9 @@
 #include "cis25Fall2013FinalExamCircle.h"
 #include "cis25Fall2013FinalExamCylinder.h"
 #include "cis25Fall2013FinalExamShape.h"
+#include "cis25Fall2013FinalExamPoint.h"
 
+//FIXME this is sorting decending for some reason
 void displayVolumeScottK(ShapeScottK *shapeAry[], int size) {
     ShapeScottK *temp = NULL;
 

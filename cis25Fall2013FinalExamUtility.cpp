@@ -8,6 +8,8 @@
 #include <iostream>
 using namespace std;
 #include "cis25Fall2013FinalExamUtility.h"
+#include "cis25Fall2013FinalExamShape.h"
+#include "cis25Fall2013FinalExamPoint.h"
 #include "cis25Fall2013FinalExamFraction.h"
 #include "cis25Fall2013FinalExamRectangle.h"
 #include "cis25Fall2013FinalExamCircle.h"
@@ -17,35 +19,70 @@ using namespace std;
 
 void menu(void) {
     // Fractions
-    cout << "Starting at Line 50:" << endl;
+    cout << "Starting at Line 1000:" << endl;
     FractionScottK *fPtrA =
-	new FractionScottK(4, 1);
+	new FractionScottK(8, 1);
     cout << *fPtrA << endl;
-
     FractionScottK *fPtrB =
-	new FractionScottK(3, 1);
-    cout << *fPtrB << endl;
-
-    FractionScottK *fPtrC =
 	new FractionScottK(2, 1);
+    cout << *fPtrB << endl;
+    FractionScottK *fPtrC =
+	new FractionScottK(3, 1);
     cout << *fPtrC << endl;
-
     FractionScottK *fPtrD =
-	new FractionScottK(9, 1);
+	new FractionScottK(6, 1);
     cout << *fPtrD << endl;
+    FractionScottK *fPtrE =
+	new FractionScottK(-8, 1);
+    cout << *fPtrE << endl;
+    FractionScottK *fPtrF =
+	new FractionScottK(-2, 1);
+    cout << *fPtrF << endl;
+    FractionScottK *fPtrG =
+	new FractionScottK(-3, 1);
+    cout << *fPtrG << endl;
+    FractionScottK *fPtrH =
+	new FractionScottK(-6, 1);
+    cout << *fPtrH << endl;
+
+    //POINT
+    PointScottK *pPtrA =
+	new PointScottK(*fPtrA, *fPtrB);
+    cout << *pPtrA << endl;
+    PointScottK *pPtrB =
+	new PointScottK(*fPtrB, *fPtrC);
+    cout << *pPtrB << endl;
+    PointScottK *pPtrC =
+	new PointScottK(*fPtrC, *fPtrD);
+    cout << *pPtrC << endl;
+    PointScottK *pPtrD =
+	new PointScottK(*fPtrD, *fPtrE);
+    cout << *pPtrD << endl;
+    PointScottK *pPtrE =
+	new PointScottK(*fPtrE, *fPtrF);
+    cout << *pPtrE << endl;
+    PointScottK *pPtrF =
+	new PointScottK(*fPtrF, *fPtrG);
+    cout << *pPtrF << endl;
+    PointScottK *pPtrG =
+	new PointScottK(*fPtrG, *fPtrH);
+    cout << *pPtrG << endl;
+    PointScottK *pPtrH =
+	new PointScottK(*fPtrH, *fPtrA);
+    cout << *pPtrH << endl;
 
     // Circles
     cout << "Starting at Line 1880: Circle" << endl;
     CircleScottK *cPtrA =
-	new CircleScottK(*fPtrA);
+	new CircleScottK(*pPtrA, *fPtrA);
     cout << *cPtrA << endl;
 
     CircleScottK *cPtrB =
-	new CircleScottK(*fPtrB);
+	new CircleScottK(*pPtrB, *fPtrB);
     cout << *cPtrB << endl;
 
     CircleScottK *cPtrC =
-	new CircleScottK(*fPtrC);
+	new CircleScottK(*pPtrC, *fPtrC);
     cout << *cPtrC << endl;
 
     // Cylinders
@@ -65,15 +102,15 @@ void menu(void) {
     // Rectangles
     cout << "Starting at Line 3300: Rectangle" << endl;
     RectangleScottK *rPtrA =
-	new RectangleScottK(*fPtrA, *fPtrA);
+	new RectangleScottK(*pPtrA, *pPtrD);
     cout << *rPtrA << endl;
 
     RectangleScottK *rPtrB =
-	new RectangleScottK(*fPtrB, *fPtrB);
+	new RectangleScottK(*pPtrB, *pPtrE);
     cout << *rPtrB << endl;
 
     RectangleScottK *rPtrC =
-	new RectangleScottK(*fPtrC, *fPtrC);
+	new RectangleScottK(*pPtrC, *pPtrF);
     cout << *rPtrC << endl;
 
     // Box
@@ -89,7 +126,6 @@ void menu(void) {
     BoxScottK *boxPtrC =
 	new BoxScottK(*rPtrC, *fPtrD);
     cout << *boxPtrC << endl;
-
 
     const int shapeArySize = 12;
     

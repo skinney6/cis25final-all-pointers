@@ -20,33 +20,43 @@ FractionScottK CircleScottK::getVol(void) const {
 }
 
 FractionScottK CircleScottK::getArea(void) const {
-    return FractionScottK(PI * ((*radiusPtr) * (*radiusPtr)));
+    return FractionScottK(((*radiusPtr) * (*radiusPtr)) * PI);
 }
 
 CircleScottK::CircleScottK() {
     radiusPtr = new FractionScottK;
+    centerPtr = new PointScottK;
 }
 
-CircleScottK::CircleScottK(FractionScottK &r) {
+CircleScottK::CircleScottK(PointScottK &c, FractionScottK &r) {
     radiusPtr = new FractionScottK(r);
+    centerPtr = new PointScottK(c);
 }
 
 CircleScottK::CircleScottK(const CircleScottK &old) {
     radiusPtr = new FractionScottK(*old.radiusPtr);
+    centerPtr = new PointScottK(*old.centerPtr);
 }
 
 CircleScottK::~CircleScottK() {
     delete radiusPtr;
+    delete centerPtr;
 }                 
 
 CircleScottK& CircleScottK::operator=(const CircleScottK &arg) {
     if (this != &arg) {
 	radiusPtr = new FractionScottK(*arg.radiusPtr);
+	centerPtr = new PointScottK(*arg.centerPtr);
     } 
     return *this;
 }
 
+void CircleScottK::printCir(void) {
+    cout << "Base circle:\n" << "Center: " << *centerPtr 
+       << " Radius: " << *radiusPtr << endl;
+}
+
 void CircleScottK::print(ostream &os) {
-    os << "Radius: " << *radiusPtr << " Area: " << 
-	getArea() << endl;
+    os << "Circle\n:Center: " << *centerPtr << " Radius: " << *radiusPtr 
+       << " Area: " << getArea() << endl;
 }

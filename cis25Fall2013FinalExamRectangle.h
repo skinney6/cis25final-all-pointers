@@ -12,22 +12,22 @@
 using namespace std;
 #include "cis25Fall2013FinalExamFraction.h"
 #include "cis25Fall2013FinalExamShape.h"
+#include "cis25Fall2013FinalExamPoint.h"
 
 class RectangleScottK : public ShapeScottK {
-protected:
-    FractionScottK *lenPtr;
-    FractionScottK *widPtr;
+private:
+    PointScottK *ll;
+    PointScottK *ur;
 public:
     friend ostream& operator<<(ostream &, const RectangleScottK &);
 
     RectangleScottK();
-    RectangleScottK(FractionScottK &, FractionScottK &);
+    RectangleScottK(PointScottK &, PointScottK &);
     RectangleScottK(const RectangleScottK &);
     ~RectangleScottK();
 
     void print(ostream &);
-    FractionScottK getLen(void) const;
-    FractionScottK getWid(void) const;
+    void printPoints(void);
     FractionScottK getArea(void) const;
     FractionScottK getVol(void) const;
     RectangleScottK& operator=(const RectangleScottK &);

@@ -12,8 +12,7 @@ using namespace std;
 #include "cis25Fall2013FinalExamFraction.h"
 
 void CylinderScottK::print(ostream &os) {
-    os << "Base Circle: Radius " << CircleScottK::getR() << " Area " <<
-	CircleScottK::getArea() << endl;
+    CircleScottK::printCir();
     os << "Cylinder Area: " << CylinderScottK::getArea() << endl;
     os << "Cylinder Volume: " << CylinderScottK::getVol() << endl;
 }

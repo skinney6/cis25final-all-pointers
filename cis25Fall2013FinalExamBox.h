@@ -5,8 +5,8 @@
  * Written by:   Scott Kinney
  * Date:         
  */
-#ifndef SCOTTKINNEYLAB7BOX_H
-#define SCOTTKINNEYLAB7BOX_H
+#ifndef FINALBOX_H
+#define FINALBOX_H
 #include "cis25Fall2013FinalExamRectangle.h"
 #include "cis25Fall2013FinalExamFraction.h"
 

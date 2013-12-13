@@ -14,23 +14,19 @@ using namespace std;
 FractionScottK six(6, 1); //for a boxes six sides
 
 void BoxScottK::print(ostream &os) {
-    os << "Length " << RectangleScottK::getLen() << 
-	" Width " << RectangleScottK::getWid() <<
-	" Height " << *heightPtr << "\nArea "
-       << (RectangleScottK::getLen()) *
-	(RectangleScottK::getWid()) * six
-       << "\nVolume " << (RectangleScottK::getLen()) *
-	(RectangleScottK::getWid()) * (*heightPtr) << endl;
+    RectangleScottK::printPoints();
+    os << " Height " << *heightPtr << "\nArea ";
+    os << ((RectangleScottK::getArea()) * six) << endl;
+    os << "Volume " << ((RectangleScottK::getArea()) * (*heightPtr)) 
+	 << endl;
 }
 
 FractionScottK BoxScottK::getArea(void) const {
-    return FractionScottK((RectangleScottK::getLen() * 
-			   RectangleScottK::getWid()) * six);
+    return FractionScottK(RectangleScottK::getArea() * six);
 }
 
 FractionScottK BoxScottK::getVol(void) const {
-    return FractionScottK((RectangleScottK::getLen()) * 
-			  (RectangleScottK::getWid()) * (*heightPtr));
+    return FractionScottK((RectangleScottK::getArea()) * (*heightPtr));
 }
 
 BoxScottK::BoxScottK() {
